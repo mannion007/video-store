@@ -1,0 +1,45 @@
+{
+  "consumer": {
+    "name": "videoService"
+  },
+  "provider": {
+    "name": "ratingService"
+  },
+  "interactions": [
+    {
+      "description": "a request to retrieve \"terminator\"",
+      "providerState": "video \"terminator\" exists",
+      "request": {
+        "method": "GET",
+        "path": "/videos",
+        "query": "id=c9fdf481-81c2-4e49-99c0-dcb3b0200bcc"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"id\":\"c9fdf481-81c2-4e49-99c0-dcb3b0200bcc\",\"name\":\"terminator\",\"description\":\"an old sci fi horror film\"}"
+      }
+    },
+    {
+      "description": "a request to retrieve \"scream\"",
+      "providerState": "video \"scream\" does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/videos",
+        "query": "id=47766cc5-a5db-4fcf-a475-62e363e06e3c"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
